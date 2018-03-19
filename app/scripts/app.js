@@ -22,6 +22,9 @@ $(document).ready(function () {
 
 
     $('#landing-page').removeClass('hidden');
+    // lib.doWhenExists('#modal', function(){
+    //     $('#modal').slideDown(5000);
+    // });
     lib.doWhenExists('#modal', positionModal);
 
     window.addEventListener('resize', function(){
@@ -41,5 +44,9 @@ function positionModal(){
     var modal = $('#modal');
     var leftPos = (window.innerWidth - modal.width()) / 2;
     var topPos = (window.innerHeight - modal.height()) / 2;
-    modal.offset({left: leftPos, top: topPos});
+    // modal.offset({left: leftPos, top: topPos});
+    modal.offset({left: leftPos, top: 0});
+    modal.animate({top: topPos + 20}, 250, 'swing');
+    modal.animate({top: topPos - 10}, 100);
+    modal.animate({top: topPos}, 50);
 }

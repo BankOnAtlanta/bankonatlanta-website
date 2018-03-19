@@ -17,8 +17,8 @@
     z-index: 10;
     position: absolute;
     background-color: white;
-    border: 5px solid rgba(65,105,225, .8);
-    border-radius: 5px;
+    border-top: 10px solid rgba(65,105,225, .8);
+    /* border-radius: 0px 5px 5px 0px; */
     padding: 10px;
     min-width: 300px;
     max-width: 350px;
