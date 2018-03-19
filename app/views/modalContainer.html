@@ -1,0 +1,35 @@
+<div id="modal-backdrop"></div>
+<div id="modal" class="container">
+    <h5 id="filter-modal-title">Tell us who you are!</h5>
+    <hr class="divider">
+    <form id="filter-form">
+        <div id="zip-filter">
+            <label class="filter-modal-label">Zipcode:</label>
+            <select id="zip-input" class="filter-modal-input"oninput="displayInput('demographics')">
+                <option disabled selected value> -- Select an Option -- </option>
+                <option value="30030">30030</option>
+                <option value="30323">30323</option>
+                <option value="30674">30674</option>
+                <option value="30336">30336</option>
+                <option value="30124">30124</option>
+                <option value="30764">30764</option>
+            </select>
+        </div>
+        <div id="demographics-filter" class="hidden">
+            <label class="filter-modal-label">I am a...</label>
+            <select id="demo-input" class="filter-modal-input"oninput="displayInput('services')">
+                <option disabled selected value> -- Select an Option -- </option>
+                <option value="Youth">Youth</option>
+                <option value="Veteran">Veteran</option>
+            </select>
+        </div>
+        <div id="services-filter" class="hidden">
+                <label class="filter-modal-label">Looking for...</label>
+                <select id="services-input"class="filter-modal-input">
+                    <option disabled selected value> -- Select an Option -- </option>
+                    <option value="Career Services">Career Services</option>
+                    <option value="Financial Counseling">Financial Counseling</option>
+                </select>
+            </div>
+    </form>
+</div>

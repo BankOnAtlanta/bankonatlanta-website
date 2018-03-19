@@ -1,0 +1,30 @@
+#filters-collapsed{
+    display: block;
+    background-color: #999;
+    height: 30px !important;
+    border: 2px solid black;
+    box-shadow: 0px 3px 2px grey;
+}
+
+#filter-modal-title{
+    text-align: center;
+    margin: 0px;
+}
+
+#filter-form{
+    display: table;
+    margin: 0 auto;
+}
+
+#zip{
+    align-content: center;
+}
+
+.filter-modal-input{
+    width: 180px;
+}
+
+.filter-modal-label{
+    width: 100px;
+    display: inline-block;
+}
