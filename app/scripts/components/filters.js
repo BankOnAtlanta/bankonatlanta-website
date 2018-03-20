@@ -37,7 +37,7 @@ var filters = (function (w, $) {
         self.handleInput = function(filterName, isFromModal){
             switch(filterName){
                 case 'zip': 
-                    if(isFromModal){
+                    if(isFromModal && $('#services-filter').height() > 0){
                         hideInput('services');
                     }
                     resetInput('demo');
