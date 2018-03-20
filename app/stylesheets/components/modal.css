@@ -17,7 +17,7 @@
     z-index: 10;
     position: absolute;
     background-color: white;
-    border-top: 10px solid rgba(65,105,225, .8);
+    border-top: 20px solid rgba(65,105,225, .8);
     /* border-radius: 0px 5px 5px 0px; */
     padding: 10px;
     min-width: 300px;
@@ -28,4 +28,15 @@
 
 .divider{
     margin: 10px;
+}
+
+.close-button{
+    color: lightgray;
+    height: auto;
+    width: auto;
+    font-size: 2em;
+    float: right;
+    margin-right: -8px;
+    margin-top: -43px;
+    cursor: pointer;
 }

@@ -28,7 +28,7 @@ var lib = (function (w, $) {
             library.doWhenExists(selector, action, intervalMs);
         },
         varExists: function(variable){
-            return library.varExists(library);
+            return library.varExists(variable);
         }
     }
 })(window, window.jQuery);

@@ -23,6 +23,9 @@ $(document).ready(function () {
 
     $('#landing-page').removeClass('hidden');
     modal.init();
+    window.addEventListener('resize', function () {
+        modal.position();
+    });
 });
 
 function displayPage(id, displayFilters) {
@@ -31,15 +34,19 @@ function displayPage(id, displayFilters) {
     var isInitialLoad = true;
     if (displayFilters) {
         $('#filters-collapsed').removeClass('hidden');
+        var zip = localStorage.getItem('boa-zip');
+        if(lib.varExists(zip)){
+            var demo = localStorage.getItem('boa-demo');
+            var service = localStorage.getItem('boa-service');
 
-        if(isInitialLoad){
-            modal.display('filter-modal-content');
-            modal.drop();
-            window.addEventListener('resize', function () {
-                modal.position();
-            });
-            
-            isInitialLoad = false;
+            filters.setCollapsedFilters(zip, demo, service);
+        } else{
+            if(isInitialLoad){
+                modal.display('filter-modal-content');
+                modal.drop();
+                
+                isInitialLoad = false;
+            }
         }
     }
 }
