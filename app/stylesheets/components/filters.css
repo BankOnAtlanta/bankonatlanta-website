@@ -29,12 +29,12 @@
     width: 100px;
     display: inline-block;
 }
-.filter-collapsed-label{
+.filter-label-collapsed{
     width: 100px;
     display: inline-block;
 }
 
-.filter-collapsed-input{
+.filter-input-collapsed{
     margin: 0px;
 }
 

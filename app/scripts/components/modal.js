@@ -19,22 +19,23 @@ var modal = (function (w, $) {
 
         self.drop = function() {
             $('#modal-container').removeClass('hidden');
-            var leftPos = (window.innerWidth - self.modal.width()) / 2;
-            var topPos = (window.innerHeight - self.modal.height()) / 2;
-            self.modal.offset({ left: leftPos, top: (-1) * self.modal.height() });
+            var leftPos = (window.innerWidth - self.modal.outerWidth()) / 2;
+            var topPos = (window.innerHeight - self.modal.outerHeight()) / 2;
+            self.modal.offset({ left: leftPos, top: (-1) * self.modal.outerHeight() });
             self.modal.animate({ top: topPos + 20 }, 250, 'swing');
             self.modal.animate({ top: topPos - 10 }, 100);
             self.modal.animate({ top: topPos }, 50);
         };
         
         self.position = function() {
-            var leftPos = (window.innerWidth - self.modal.width()) / 2;
-            var topPos = (window.innerHeight - self.modal.height()) / 2;
+            var leftPos = (window.innerWidth - self.modal.outerWidth()) / 2;
+            var topPos = (window.innerHeight - self.modal.outerHeight()) / 2;
             self.modal.offset({ left: leftPos, top: topPos });
         };
 
         self.close = function(){
             var topPos = (-1) * self.modal.outerHeight();
+            self.modal.animate({ top: self.modal.offset().top + 10 }, 100);
             self.modal.animate({top: topPos}, 250, 'swing', function(){
                 $('#modal-container').addClass('hidden');
             })

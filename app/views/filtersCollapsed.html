@@ -1,9 +1,9 @@
 <!-- <i id="filters-hamburger" class="fas fa-bars fa-2x"></i> -->
 <a id="refine-filters" onclick="filters.refineSearch()">Refine your search...</a>
 <div id="zip-filter-collapsed" class="collapsed-filter">
-    <label class="filter-collapsed-label">Zipcode:</label>
-    <select id="zip-input-collapsed" class="filter-collapsed-input" oninput="filters.submitInput()">
-        <option disabled selected value> -- Select an Option -- </option>
+    <label class="filter-label-collapsed">Zipcode:</label>
+    <select id="zip-input-collapsed" class="filter-input-collapsed" oninput="filters.handleInput('zip', false)">
+        <option disabled selected value="0"> -- Select an Option -- </option>
         <option value="30303">30303</option>
         <option value="30310">30310</option>
         <option value="30312-15">30312-15</option>
@@ -11,17 +11,17 @@
     </select>
 </div>
 <div id="demographics-filter-collapsed" class="collapsed-filter">
-    <label class="filter-collapsed-label">I am a...</label>
-    <select id="demo-input-collapsed" class="filter-collapsed-input" oninput="filters.submitInput()">
-        <option disabled selected value> -- Select an Option -- </option>
+    <label class="filter-label-collapsed">I am a...</label>
+    <select id="demo-input-collapsed" class="filter-input-collapsed" oninput="filters.handleInput('demo', false)">
+        <option disabled selected value="0"> -- Select an Option -- </option>
         <option value="Youth">Youth</option>
         <option value="Veteran">Veteran</option>
     </select>
 </div>
 <div id="services-filter-collapsed" class="collapsed-filter">
-    <label class="filter-collapsed-label">Looking for...</label>
-    <select id="services-input-collapsed" class="filter-collapsed-input" oninput="filters.submitInput()">
-        <option disabled selected value> -- Select an Option -- </option>
+    <label class="filter-label-collapsed">Looking for...</label>
+    <select id="service-input-collapsed" class="filter-input-collapsed" oninput="filters.handleInput('service', false)">
+        <option disabled selected value="0"> -- Select an Option -- </option>
         <option value="Career Services">Career Services</option>
         <option value="Financial Counseling">Financial Counseling</option>
     </select>
