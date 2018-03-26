@@ -111,7 +111,6 @@ var filters = (function (w, $) {
     }
 
     var fil = new Filters();
-
     return { 
         displayInput: function(name) {
             fil.displayInput(name);

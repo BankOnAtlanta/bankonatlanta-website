@@ -19,6 +19,10 @@ $(document).ready(function () {
         .done(function (data) {
             $('#modal-container').html(data);
         });
+    $.get('views/servicesPage.html')
+        .done(function (data) {
+            $('#services-page').html(data);
+        });
 
 
     $('#landing-page').removeClass('hidden');
@@ -30,7 +34,6 @@ $(document).ready(function () {
 
 function displayPage(id, displayFilters) {
     $('.component').addClass('hidden');
-    $('#' + id).removeClass('hidden');
     var isInitialLoad = true;
     if (displayFilters) {
         $('#filters-collapsed').removeClass('hidden');
@@ -49,4 +52,15 @@ function displayPage(id, displayFilters) {
             }
         }
     }
+
+    switch(id){
+        case 'services-page':
+            services.init();
+        break;
+        default:
+
+        break;
+    }
+
+    $('#' + id).removeClass('hidden');
 }
