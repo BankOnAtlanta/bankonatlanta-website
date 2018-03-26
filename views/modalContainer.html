@@ -1,0 +1,40 @@
+<div id="modal-backdrop"></div>
+<div id="modal" class="container">
+</div>
+
+<div id="filter-modal-content" class="hidden">
+        <div class="close-button" onclick="modal.close()">&times;</div>
+        <h5 id="filter-modal-title">Help us find what you're looking for!</h5>
+        <hr class="divider">
+        <form id="filter-form">
+            <div id="zip-filter" class="filter-modal-section">
+                <label class="filter-modal-label">Zipcode:</label>
+                <select id="zip-input-modal" class="filter-modal-input" oninput="filters.handleInput('zip', true);">
+                    <option disabled selected value="0"> -- Select an Option -- </option>
+                    <option value="30303">30303</option>
+                    <option value="30310">30310</option>
+                    <option value="30312">30312</option>
+                    <option value="30313">30313</option>
+                    <option value="30314">30314</option>
+                    <option value="30315">30315</option>
+                    <option value="30318">30318</option>
+                </select>
+            </div>
+            <div id="demographics-filter" class="hidden filter-modal-section">
+                <label class="filter-modal-label">I am a...</label>
+                <select id="demo-input-modal" class="filter-modal-input" oninput="filters.handleInput('demo', true)">
+                    <option disabled selected value="0"> -- Select an Option -- </option>
+                    <option value="Youth">Youth</option>
+                    <option value="Veteran">Veteran</option>
+                </select>
+            </div>
+            <div id="services-filter" class="hidden filter-modal-section">
+                <label class="filter-modal-label">Looking for...</label>
+                <select id="service-input-modal" class="filter-modal-input" oninput="filters.handleInput('service', true)">
+                    <option disabled selected value="0"> -- Select an Option -- </option>
+                    <option value="Career Services">Career Services</option>
+                    <option value="Financial Counseling">Financial Counseling</option>
+                </select>
+            </div>
+        </form>
+    </div>
