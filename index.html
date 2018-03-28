@@ -26,6 +26,7 @@
     <script src="scripts/components/services.js"></script>
 
     <!-- Scripts -->
+    <script src="scripts/dependencies/jquery/jquery-3.1.1.js"></script>
     <!-- <script src="scripts.js"></script> -->
 </head>
 
@@ -37,7 +38,82 @@
         <div id="services-page" class="hidden component"></div>
         <div id="footer"></div>
         <div id="modal-container" class="hidden component"></div>
-    </div>
+            </div>
 </body>
 
+        <div class="card inner-pad-space">
+            <h1>Participate</h1>
+            <form id="participate_form">
+                <div class="row">
+                    <div class="six columns">
+                        <Label for="name">Name</Label><input class="u-full-width" type="text" name="name" placeholder="Name">
+                    </div>
+                    <div class="six columns">
+                        <label for="phone">Phone</label><input class="u-full-width" type="tel" name="phone" placeholder="Phone">
+                    </div>
+                </div>
+                <label for="interests">Interests</label>
+                <select name="interests" class="u-full-width">
+                    <option value="new-account">I want to open a new account</option>
+                    <option value="get-options">I want to hear about my options</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="comments">Comments</label>
+                <textarea class="u-full-width" name="comments" placeholder="Questions, comments, or concerns"></textarea>
+                <input class="button-primary" type="submit" value="Submit">
+            </form>
+        </div>
+
+        <footer>
+            <h6>
+                Bank On Atlanta &reg; 2018 <br>
+                Terms of Service and Legal Notice
+            </h6>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, et. Dolorem fugiat animi voluptatibus facere accusantium magnam sit amet odit perspiciatis repellat sunt consequuntur quidem, obcaecati odio quo alias corrupti.</p>
+        </footer>
+    </div>
+
+
+    <script>
+    $(function() {
+        $('#participate_form').submit(function(evt) {
+            var email_address = 'bankonatlanta@gmail.com';
+
+            var form_value_name = $('input[name="name"]').val(),
+                form_value_phone = $('input[name="phone"]').val(),
+                form_value_interests = $('select[name="interests"]').val(),
+                form_value_comments = $('textarea[name="comments"]').val();
+
+            var email_body = "User {name} requests more information about Bank On Atlanta.\n\n"+
+                             "Phone: {phone}\n"+
+                             "Interests: {interests}\n"+
+                             "Comments: {comments}";
+
+            var email_subject = "User request for more info about Bank On Atlanta";
+            var email_content = "";
+            var email_url = "";
+
+            evt.preventDefault(); // prevent the form from submitting (until we want it to)
+
+            if (form_value_name && form_value_phone && form_value_interests && form_value_comments) {
+                // form is totally filled-out, carry on
+
+                email_content = (email_body.replace("{name}", form_value_name)
+                                           .replace("{phone}", form_value_phone)
+                                           .replace("{interests}", form_value_interests)
+                                           .replace("{comments}", form_value_comments)
+                                );
+
+                email_url = encodeURI("mailto:"+ email_address +"?subject="+ email_subject +"&body="+ email_content);
+
+                window.open(email_url, "_blank");
+            } else {
+                // form isn't fully filled-out yet
+                alert("Please fill out the form completely before submitting.");
+            }
+        });
+    });
+    </script>
+</body>
 </html>
