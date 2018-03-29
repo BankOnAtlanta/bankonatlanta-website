@@ -5,7 +5,8 @@
     <div class="row">
         <div class="eight columns">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum eum, necessitatibus iure, atque vitae, architecto
             laborum inventore repellat odio obcaecati illo aspernatur! Temporibus saepe obcaecati similique minima, a alias
-            veniam?</div>
+            veniam?
+        </div>
         <div class="four columns">
             <img src="img/BankOn.png" class="u-max-full-width" />
         </div>
@@ -14,7 +15,7 @@
 
 <div class="card inner-pad-space">
     <h1>Participate</h1>
-    <form>
+    <form id="participate_form">
         <div class="row">
             <div class="six columns">
                 <Label for="name">Name</Label>
@@ -22,18 +23,28 @@
             </div>
             <div class="six columns">
                 <label for="phone">Phone</label>
-                <input class="u-full-width" type="number" name="phone" placeholder="Phone">
+                <input class="u-full-width" type="tel" name="phone" placeholder="Phone">
             </div>
         </div>
         <label for="interests">Interests</label>
-        <select class="u-full-width">
+        <select name="interests" class="u-full-width">
             <option value="new-account">I want to open a new account</option>
             <option value="get-options">I want to hear about my options</option>
             <option value="other">Other</option>
         </select>
 
         <label for="comments">Comments</label>
-        <textarea class="u-full-width" placeholder="Questions, comments, or concerns"></textarea>
+        <textarea class="u-full-width" name="comments" placeholder="Questions, comments, or concerns"></textarea>
         <input class="button-primary" type="submit" value="Submit">
     </form>
+</div>
+
+<footer>
+    <h6>
+        Bank On Atlanta &reg; 2018
+        <br> Terms of Service and Legal Notice
+    </h6>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ea, et. Dolorem fugiat animi voluptatibus facere accusantium
+        magnam sit amet odit perspiciatis repellat sunt consequuntur quidem, obcaecati odio quo alias corrupti.</p>
+</footer>
 </div>
