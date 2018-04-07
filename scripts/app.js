@@ -27,6 +27,7 @@ $(document).ready(function () {
 
     $('#landing-page').removeClass('hidden');
     modal.init();
+    filters.init();
     window.addEventListener('resize', function () {
         modal.position();
     });
@@ -37,6 +38,9 @@ function displayPage(id, displayFilters) {
     var isInitialLoad = true;
     if (displayFilters) {
         $('#filters-collapsed').removeClass('hidden');
+        if (!filters.zipIsInitialized()) {
+            filters.initZipDropdowns();
+        }
         var zip = localStorage.getItem('boa-zip');
         if(lib.varExists(zip)){
             var demo = localStorage.getItem('boa-demo');

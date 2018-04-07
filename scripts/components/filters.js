@@ -6,24 +6,52 @@ var filters = (function (w, $) {
 
     var Filters = function(){
         var self = this;
+        self.uniqueZips;
+        self.zipIsInitialized = false;
+
+        self.init = function(){
+            var seedData = repo.getData();
+            var zipArray = $.map(seedData, function(service){
+                return service.zip;                
+            });
+            self.uniqueZips = zipArray.filter(onlyUnique);
+        };
+
+        self.initZipDropdowns = function() {
+            var collapsedZipDropdown = document.getElementById('zip-input-collapsed');
+            var modalZipDropdown = document.getElementById('zip-input-modal');
+            var option;
+            self.uniqueZips.forEach(function(uniqueZip) {
+                option = document.createElement('option');
+                option.value = uniqueZip;
+                option.innerText = uniqueZip;
+                collapsedZipDropdown.appendChild(option);
+                modalZipDropdown.appendChild(option);
+            });
+            self.zipIsInitialized = true;
+        };
 
         self.displayInput = function(name, isFromModal) {
-          var modal = $('#modal');
+          var filterModal = $('#modal');
           var filter = $('#' + name + '-filter');
           var filterHeight = $('#zip-filter').height();
           if (parseInt(filter.height()) === 0 && isFromModal) {
             filter.height(0);
             filter.removeClass('hidden');
-            modal.animate({ height: modal.outerHeight() + filterHeight + 'px', top: modal.offset().top - 26 }, 250, 'linear');
+            filterModal.animate({ height: filterModal.outerHeight() + filterHeight + 'px', top: filterModal.offset().top - 26 }, 250, 'linear');
             filter.animate({ height: filterHeight + 'px' }, 250);
           }
         };
 
+        function onlyUnique(value, index, self) { 
+            return self.indexOf(value) === index;
+        }
+
         function hideInput(name){
-            var modal = $('#modal');
+            var filterModal = $('#modal');
             var filter = $('#' + name + '-filter');
             var filterHeight = filter.height();
-            modal.animate({ height: modal.outerHeight() - filterHeight + 'px', top: modal.offset().top + 26 }, 250, 'linear');
+            filterModal.animate({ height: filterModal.outerHeight() - filterHeight + 'px', top: filterModal.offset().top + 26 }, 250, 'linear');
             filter.animate({ height: 0 }, 250);
             filter.addClass('hidden');
         }
@@ -112,19 +140,28 @@ var filters = (function (w, $) {
 
     var fil = new Filters();
     return { 
+        init: function() {
+            fil.init();
+        },
+        initZipDropdowns: function() {
+            fil.initZipDropdowns();
+        },
+        zipIsInitialized: function() {
+            return fil.zipIsInitialized;
+        },
         displayInput: function(name) {
             fil.displayInput(name);
         }, 
-        submitInput: function(isFromModal){
+        submitInput: function(isFromModal) {
             fil.submitInput(isFromModal);
         },
-        setCollapsedFilters: function(zip, demo, service){
+        setCollapsedFilters: function(zip, demo, service) {
             fil.setCollapsedFilters(zip, demo, service);
         },
-        refineSearch: function(){
+        refineSearch: function() {
             fil.refineSearch();
         },
-        handleInput: function(filterName, isFromModal){
+        handleInput: function(filterName, isFromModal) {
             fil.handleInput(filterName, isFromModal);
         }
     };
