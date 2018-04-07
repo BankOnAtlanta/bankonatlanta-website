@@ -17,8 +17,13 @@ var modal = (function (w, $) {
             self.modal[0].innerHTML = content.html();
         };
 
-        self.drop = function() {
+        self.drop = function(isFirstTimeOpened) {
             $('#modal-container').removeClass('hidden');
+            if(isFirstTimeOpened){
+                $('#modal-close-button').hide();
+            } else{
+                $('#modal-close-button').show();
+            }
             var leftPos = (window.innerWidth - self.modal.outerWidth()) / 2;
             var topPos = (window.innerHeight - self.modal.outerHeight()) / 2;
             self.modal.offset({ left: leftPos, top: (-1) * self.modal.outerHeight() });
@@ -50,8 +55,8 @@ return {
     display: function(id){
         mod.display(id);
     },
-    drop: function(){
-        mod.drop();
+    drop: function(isFirstTimeOpened){
+        mod.drop(isFirstTimeOpened);
     },
     position: function(){
         mod.position();
