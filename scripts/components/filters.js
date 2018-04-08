@@ -187,12 +187,19 @@ var filters = (function (w, $) {
             //selected them from the dropdowns.
             var zip = localStorage.getItem("boa-zip");
             var demo = localStorage.getItem("boa-demo");
-            var service = localStorage.getItem("boa-service");
+            var serviceCategory = localStorage.getItem("boa-service");
 
             //Close the modal if it's open.
             if(isFromModal){
                 modal.close();
             }
+
+            //Filters the remaining services by service category.
+            self.completelyFilteredServices = $.map(self.demoFilteredServices, function(service){
+                if(service.category === serviceCategory){ 
+                    return service;
+                }
+            });
         };
 
         //

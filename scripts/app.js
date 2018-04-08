@@ -66,6 +66,10 @@ function displayPage(id, displayFilters) {
 
             //Initialize all filters if there is data in localStorage.
             filters.setAllFilters(zip, demo, service);
+
+            //If the filters are already set from localStorage, submit the input
+            //to go ahead and showed the filtered list of service cards.
+            filters.submitInput(false);
         } else{
             //If there is no data in localStorage from a previous session, drop
             //the filter modal in, so the user can specify what they are looking for.
