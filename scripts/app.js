@@ -1,27 +1,27 @@
 $(document).ready(function () {
     //Once the document is ready, take the html from the views files
     //and insert them into their respective elements in index.html
-    $.get('views/landingPage.html')
+    $.get('/views/landing-page.html')
         .done(function (data) {
             $('#landing-page').html(data);
         });
-    $.get('views/footer.html')
+    $.get('/views/footer.html')
         .done(function (data) {
             $('#footer').html(data);
         });
-    $.get('views/nav-bar.html')
+    $.get('/views/nav-bar.html')
         .done(function (data) {
             $('#nav-bar').html(data);
         });
-    $.get('views/filtersCollapsed.html')
+    $.get('/views/filters-collapsed.html')
         .done(function (data) {
             $('#filters-collapsed').html(data);
         });
-    $.get('views/modalContainer.html')
+    $.get('/views/modal-container.html')
         .done(function (data) {
             $('#modal-container').html(data);
         });
-    $.get('views/servicesPage.html')
+    $.get('/views/services-page.html')
         .done(function (data) {
             $('#services-page').html(data);
         });
