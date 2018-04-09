@@ -4,11 +4,6 @@ html, body {
     height: 100%;
 }
 
-.img-center {
-    display: block;
-    margin: auto;
-}
-
 nav {
     background-color: white;
 }
@@ -23,7 +18,7 @@ nav ul {
 }
 
 nav ul li {
-    display: inline;
+    display: inline-block;
     margin: auto 0;
     padding: 5px 10px 5px 10px;
 }
