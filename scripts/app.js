@@ -25,6 +25,10 @@ $(document).ready(function () {
         .done(function (data) {
             $('#services-page').html(data);
         });
+    $.get('/views/about-us-page.html')
+        .done(function (data) {
+            $('#about-us-page').html(data);
+        });
 
     //Show the landing page by default
     $('#landing-page').removeClass('hidden');
